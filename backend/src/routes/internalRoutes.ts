@@ -8,6 +8,7 @@
 
 import { Router } from 'express';
 import * as initExampleController from '@/api/internal/init-example/controller';
+import * as mealController from '@/api/internal/meal/controller';
 
 const router = Router();
 
@@ -20,5 +21,15 @@ router.post('/init-example', initExampleController.createHandler);
 router.get('/init-example/:id', initExampleController.getHandler);
 router.put('/init-example/:id', initExampleController.updateHandler);
 router.delete('/init-example/:id', initExampleController.deleteHandler);
+
+/**
+ * @rule {be-route-configuration}
+ * Meal routes - /api/internal/meal
+ */
+router.get('/meal', mealController.listHandler);
+router.post('/meal', mealController.createHandler);
+router.get('/meal/:id', mealController.getHandler);
+router.put('/meal/:id', mealController.updateHandler);
+router.delete('/meal/:id', mealController.deleteHandler);
 
 export default router;
